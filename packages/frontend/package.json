@@ -11,12 +11,12 @@
   "dependencies": {
     "@app/api-client": "workspace:*",
     "@app/common": "workspace:*",
+    "@radix-ui/react-slot": "^1.5.0",
     "@tailwindcss/vite": "^4.3.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "immer": "^10.0.0",
     "lucide-react": "^1.73.0",
-    "radix-ui": "^1.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.7.0",
@@ -24,7 +24,6 @@
     "zustand": "^5.0.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.10",
     "@types/react": "^19.0.0",
