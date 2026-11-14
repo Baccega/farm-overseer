@@ -4,9 +4,9 @@
   "type": "module",
   "scripts": {
     "typecheck": "tsc -p tsconfig.json",
-    "build": "tsc -p tsconfig.json && vite build",
-    "dev": "vite --host 127.0.0.1",
-    "test": "vitest run --environment jsdom"
+    "build": "tsc -p tsconfig.json && vp build",
+    "dev": "vp dev --host 127.0.0.1",
+    "test": "vp test run --environment jsdom"
   },
   "dependencies": {
     "@app/api-client": "workspace:*",
@@ -29,7 +29,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "jsdom": "^31.0.1",
-    "vite": "^7.0.0",
-    "vitest": "^5.1.0"
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
   }
 }
