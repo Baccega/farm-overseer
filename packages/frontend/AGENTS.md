@@ -15,3 +15,5 @@ The Sync Manager owns event validation, cursor/order/version checks, deduplicati
 - Subscribe to narrow, stable Zustand selections. External store snapshots must be stable while unchanged, and subscriptions must clean up. [React external stores](https://react.dev/reference/react/useSyncExternalStore)
 - Keep typed commands outside components. The mutation engine owns optimistic state; do not add a second authority with useOptimistic. Pass refs as props where appropriate in React 19. Do not add memoization without a demonstrated need. Do not require Next.js or server actions.
 - Use the semantic CSS variables and Tailwind v4 theme for shadcn components. [shadcn Tailwind v4](https://ui.shadcn.com/docs/tailwind-v4)
+
+Use the project-local Vite+ CLI through pnpm. Run `pnpm test`, `pnpm lint`, and `pnpm check` from the workspace root. Oxlint checks the Rules of Hooks and Effect dependencies; keep these checks enabled.
