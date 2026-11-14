@@ -17,5 +17,9 @@ describe('farm overview', () => {
   expect(within(list).getByText('22 ha', { exact: false })).toBeTruthy();
   await user.click(screen.getByRole('button', { name: 'Year' }));
   expect(screen.getByRole('img', { name: /Year sample scores/ })).toBeTruthy();
+  await user.click(within(screen.getByRole('group', { name: 'Illustrated field selection' })).getByRole('button', { name: /Sunflower field/ }));
+  expect(screen.getByRole('button', { name: 'All', pressed: true })).toBeTruthy();
+  expect(screen.getByText('Sample score for Sunflower field')).toBeTruthy();
+  expect(screen.getByRole('img', { name: /Year sample scores:.*82/ })).toBeTruthy();
  });
 });
