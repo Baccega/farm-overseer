@@ -10,7 +10,8 @@ Do not stage, commit, push, deploy, or change infrastructure unless the user aut
 - common: public Effect Schema contracts. Import db/schema only when deriving schemas. Never import db/client, repositories, Node APIs, or server configuration.
 - db: PostgreSQL tables, migrations, and a separate server-only client export.
 - api-client: typed HTTP operations from common. No UI state or business rules.
-  Use package exports. Do not use relative imports across packages. Keep browser bundles free of server code.
+
+Use package exports. Do not use relative imports across packages. Keep browser bundles free of server code.
 
 ## Contract and mutation rules
 
@@ -20,4 +21,4 @@ REST carries commands and snapshots. WebSockets carry committed updates. Authent
 
 Keep confirmed entities, pending mutations, and local UI state separate. Optimistic overlays must not modify confirmed data. Use optimistic rename and confirmed deletion as the first two complete operations through the same generic engine. Do not add fake persistence or an in-memory substitute for a durable outbox.
 
-Read docs/architecture.md for sync, resource, and implementation rules. Keep implementation status accurate. Run pnpm typecheck and pnpm build after code changes. Add behavior and authorization tests when those operations exist. Do not start services without acquiring the Pawffice dev-stack slot.
+Read docs/architecture.md for sync, resource, and implementation rules. Keep implementation status accurate. Run pnpm check, pnpm test, pnpm typecheck, and pnpm build after code changes. Add behavior and authorization tests when those operations exist. Do not start services without acquiring the Pawffice dev-stack slot.
