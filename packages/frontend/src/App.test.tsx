@@ -9,6 +9,7 @@ describe('farm overview', () => {
   render(<App />);
   expect(screen.getByText('Sample data · not connected')).toBeTruthy();
   await user.click(screen.getByRole('button', { name: 'Wheat' }));
+  expect(screen.getByRole('heading', { name: 'North wheat' })).toBeTruthy();
   const list = screen.getByRole('button', { name: /North wheat.*Wheat/ });
   await user.click(list);
   expect(screen.getByRole('heading', { name: 'North wheat' })).toBeTruthy();

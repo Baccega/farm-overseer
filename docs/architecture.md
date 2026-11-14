@@ -23,7 +23,7 @@ Use scoped fibers and schedules for short tasks and retries. Persist restart-saf
 Keep handlers stateless. Start with one backend. Add a distributed event bus only when multiple instances serve subscriptions. Add pagination and partial subscriptions only after measurements show need. Measure HTTP latency, mutation confirmation time, outbox lag, database load, and reconnect frequency.
 
 ## Build order and current status
-Only workspace structure, package boundaries, a static React shell, a typed health API/client, and an Effect server entry point exist. There are no domain tables, migrations, authentication, mutations, outbox, WebSockets, or sync engine yet.
+Only workspace structure, package boundaries, a sample-data farm overview, a typed health API/client, and an Effect server entry point exist. There are no domain tables, migrations, authentication, mutations, outbox, WebSockets, or sync engine yet.
 
 1. Define tables and generate reviewed migrations.
 2. Derive Effect row schemas with a version-compatible adapter; select public fields.
