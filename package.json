@@ -2,20 +2,25 @@
   "name": "farm-overseer",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.32.1",
-  "engines": {
-    "node": ">=24"
-  },
   "scripts": {
-    "typecheck": "pnpm -r typecheck",
-    "build": "pnpm -r build",
-    "dev:frontend": "pnpm --filter @app/frontend dev",
-    "dev:backend": "pnpm --filter @app/backend dev",
-    "db:generate": "pnpm --filter @app/db generate"
+    "typecheck": "vp run -r typecheck",
+    "build": "vp run -r build",
+    "dev:frontend": "vp run @app/frontend#dev",
+    "dev:backend": "vp run @app/backend#dev",
+    "db:generate": "pnpm --filter @app/db generate",
+    "test": "vp run -r test",
+    "lint": "vp lint",
+    "format": "vp fmt",
+    "check": "vp check"
   },
   "devDependencies": {
     "@types/node": "^24.19.2",
     "tsx": "^4.23.15",
-    "typescript": "^5.9.3"
-  }
+    "typescript": "^5.9.3",
+    "vite-plus": "catalog:"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@10.32.1"
 }
