@@ -1,13 +1,19 @@
 # Farm Overseer
 
-Temporary name for a shared farm management application. This repository contains scaffolding only. See [architecture](docs/architecture.md) for scope, boundaries, sync rules, and build order.
+Temporary name for a shared farm management application. The frontend contains a sample-data overview; domain services are not implemented. See [architecture](docs/architecture.md) for scope, boundaries, sync rules, and build order.
 
 ## Setup
+
 Use Node 24 and Corepack/pnpm (the root package.json pins pnpm).
 
 - pnpm install --frozen-lockfile
+- pnpm test
+- pnpm lint
+- pnpm check
 - pnpm typecheck
 - pnpm build
+
+Vite+ is installed locally; `pnpm exec vp` needs no global CLI. `pnpm format` formats the workspace. The workspace task runner executes package scripts in dependency order.
 
 After acquiring a Pawffice dev-stack slot, run pnpm dev:frontend and pnpm dev:backend in separate terminals. Frontend defaults to localhost:5173; the backend binds localhost:3001 and serves GET /health. Set PORT to change the backend port. No database is required for the scaffold. No server is started by install or build.
 
