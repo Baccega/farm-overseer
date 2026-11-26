@@ -29,7 +29,7 @@ Keep handlers stateless. Start with one backend. Add a distributed event bus onl
 
 ## Build order and current status
 
-Only workspace structure, package boundaries, a sample-data farm overview, a typed health API/client, and an Effect server entry point exist. There are no domain tables, migrations, authentication, mutations, outbox, WebSockets, or sync engine yet.
+The workspace has package boundaries, a sample-data farm overview, a field editor prototype, a typed health API/client, and an Effect server entry point. The field editor uses OpenStreetMap tiles and keeps drawn boundaries, plants, and poles in browser memory for the current session. Grid spacing uses a local meter projection and follows the first boundary edge. There are no domain tables, migrations, authentication, server mutations, outbox, WebSockets, or sync engine yet.
 
 1. Define tables and generate reviewed migrations.
 2. Derive Effect row schemas with a version-compatible adapter; select public fields.

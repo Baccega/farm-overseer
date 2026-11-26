@@ -479,3 +479,10 @@ footer {
     animation-duration: 0s !important;
   }
 }
+
+.overview-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}

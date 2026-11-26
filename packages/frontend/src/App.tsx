@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Leaf, Sprout, MapPin, Droplets, ArrowUpRight } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { Card } from "./components/ui/card";
 import { fields, type Field, type Period } from "./data";
+import type { DraftField } from "./features/field-editor/geometry";
+
+const FieldEditor = lazy(() => import("./features/field-editor/FieldEditor"));
 
 function FieldMap({ selected, onSelect }: { selected: Field; onSelect: (id: string) => void }) {
   return (
@@ -92,6 +95,27 @@ export default function App() {
   const [selectedId, setSelectedId] = useState(fields[0]!.id);
   const [period, setPeriod] = useState<Period>("Month");
   const [crop, setCrop] = useState("All");
+  const [editorOpen, setEditorOpen] = useState(false);
+  const [draftFields, setDraftFields] = useState<DraftField[]>([
+    { id: "first-field", name: "Field 1", closed: false, boundary: [], objects: [] },
+  ]);
+  if (editorOpen) {
+    return (
+      <Suspense
+        fallback={
+          <main className="content" role="status">
+            Loading field editor…
+          </main>
+        }
+      >
+        <FieldEditor
+          fields={draftFields}
+          onChange={setDraftFields}
+          onBack={() => setEditorOpen(false)}
+        />
+      </Suspense>
+    );
+  }
   const selected = fields.find((f) => f.id === selectedId) ?? fields[0]!;
   const visible = crop === "All" ? fields : fields.filter((f) => f.crop === crop);
   return (
@@ -123,7 +147,12 @@ export default function App() {
             </h1>
             <p className="muted">Here's a little look at your farm.</p>
           </div>
-          <div className="sample">Sample data · not connected</div>
+          <div className="overview-actions">
+            <div className="sample">Sample data · not connected</div>
+            <Button variant="outline" onClick={() => setEditorOpen(true)}>
+              Open field editor
+            </Button>
+          </div>
         </header>
         <section className="intro">
           <div>
