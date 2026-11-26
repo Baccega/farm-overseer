@@ -1,0 +1,157 @@
+.field-editor-heading {
+  margin-bottom: 20px;
+}
+
+.field-editor-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 300px);
+  gap: 16px;
+  align-items: start;
+}
+
+.field-editor-map {
+  overflow: hidden;
+}
+
+.field-editor-tools,
+.field-editor-hints {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+}
+
+.field-editor-hints {
+  justify-content: space-between;
+  color: #52695b;
+  font-size: 0.875rem;
+  gap: 8px 16px;
+}
+
+.field-editor-hints kbd {
+  padding: 1px 5px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--background);
+}
+
+.field-map-canvas {
+  width: 100%;
+  height: clamp(360px, 68vh, 790px);
+  isolation: isolate;
+  background: #e5ebe1;
+  font-family: inherit;
+}
+
+.field-map-canvas[data-tool="plant"],
+.field-map-canvas[data-tool="pole"],
+.field-map-canvas[data-tool="boundary"] {
+  cursor: crosshair;
+}
+
+.field-map-canvas[data-tool="pan"],
+.field-map-canvas.field-map-space {
+  cursor: grab;
+}
+
+.field-map-canvas.leaflet-drag-target,
+.leaflet-dragging .field-map-canvas,
+.leaflet-dragging .field-map-canvas .field-map-marker {
+  cursor: grabbing;
+}
+
+.field-map-canvas[data-tool="pan"] .field-map-marker,
+.field-map-canvas.field-map-space .field-map-marker {
+  pointer-events: none;
+}
+
+.field-map-canvas .field-map-marker {
+  border: 2px solid white;
+  box-shadow: 0 1px 4px #203d3166;
+  cursor: grab;
+}
+
+.field-map-corner {
+  background: #285e48;
+  border-radius: 3px;
+}
+
+.field-map-plant {
+  background: #21834e;
+  border-radius: 50%;
+}
+
+.field-map-pole {
+  background: #a26218;
+  border-radius: 5px;
+}
+
+.field-map-marker-selected,
+.field-map-marker:focus-visible {
+  outline: 2px solid #552079;
+  outline-offset: 2px;
+}
+
+.field-editor-sidebar,
+.field-editor-panel,
+.field-editor-panel form {
+  display: grid;
+  gap: 12px;
+}
+
+.field-editor-panel {
+  padding: 16px;
+}
+
+.field-editor-panel p {
+  font-size: 0.875rem;
+}
+
+.field-editor-panel p:empty {
+  display: none;
+}
+
+.field-editor-panel label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.field-editor-panel input,
+.field-editor-panel select {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid #b9cbbd;
+  border-radius: 6px;
+  padding: 6px 8px;
+  background: var(--card);
+  color: var(--foreground);
+  font-weight: 400;
+}
+
+.field-editor-row {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+}
+
+.field-editor-row > label {
+  min-width: 0;
+  flex: 1;
+}
+
+.field-editor-panel button {
+  justify-self: start;
+}
+
+@media (max-width: 850px) {
+  .field-editor-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .field-map-canvas {
+    height: clamp(320px, 55vh, 540px);
+  }
+}
